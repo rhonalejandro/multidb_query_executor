@@ -69,13 +69,61 @@ MultiDB Query Executor es una herramienta web robusta diseñada para ejecutar y 
 - Puede usar el botón "Seleccionar todas" para marcar o desmarcar todas las bases de datos rápidamente.
 
 #### Selección por resultado de consulta
+
+La selección por resultado de consulta es una poderosa característica que le permite filtrar y seleccionar bases de datos basándose en el resultado de una consulta específica. Esta funcionalidad es especialmente útil cuando necesita identificar rápidamente bases de datos que cumplen ciertos criterios sin tener que verificar cada una manualmente.
+
+**Beneficios:**
+- Ahorro de tiempo en la selección de bases de datos relevantes.
+- Identificación rápida de bases de datos que cumplen criterios específicos.
+- Automatización de procesos de selección basados en el estado de los datos.
+
+**Ejemplos de uso:**
+
+1. **Identificar bases de datos activas:**
+   Imagina que tienes múltiples bases de datos de clientes y quieres seleccionar solo aquellas que han tenido actividad reciente.
+   ```sql
+   SELECT COUNT(*) FROM transacciones WHERE fecha > DATE_SUB(NOW(), INTERVAL 30 DAY)
+   ```
+   Seleccionando bases de datos con 1 o más resultados, identificarías rápidamente las bases de datos de clientes activos en los últimos 30 días.
+
+2. **Encontrar bases de datos que requieren mantenimiento:**
+   Si necesitas identificar bases de datos que tienen tablas que necesitan optimización:
+   ```sql
+   SELECT 
+       CASE 
+           WHEN COUNT(*)  > 1000000 THEN 1
+           ELSE NULL
+       END AS result
+   FROM sys_invoices
+   HAVING result IS NOT NULL
+   ```
+   Seleccionando bases de datos con 1 o más resultados, encontrarías aquellas con tablas de más de un millón de filas que podrían necesitar indexación o particionamiento.
+
+3. **Verificar configuraciones:**
+   Para asegurarte de que todas tus bases de datos tienen una configuración específica:
+   ```sql
+   SELECT COUNT(*) FROM configuracion WHERE clave = 'version' AND valor = '2.0'
+   ```
+   Seleccionando bases de datos con 0 resultados, identificarías aquellas que aún no han sido actualizadas a la versión 2.0.
+
+4. **Auditoría de seguridad:**
+   Para identificar bases de datos que podrían tener problemas de seguridad:
+   ```sql
+   SELECT COUNT(*) FROM usuarios WHERE tipo_acceso = 'admin'
+   ```
+   Seleccionando bases de datos con más de 1 resultado, podrías identificar rápidamente aquellas con múltiples usuarios administradores, lo que podría requerir una revisión.
+
+**Cómo utilizar esta función:**
+
 - Haga clic en el botón "Seleccionar bases de datos por resultado".
 - En el modal que aparece:
   1. Elija si desea seleccionar bases de datos que devuelvan 0 resultados o 1 o más resultados.
   2. Ingrese su consulta en el área de texto.
   3. Opcionalmente, guarde la consulta para uso futuro marcando la casilla "Guardar este query" e ingresando un nombre.
   4. Haga clic en "Ejecutar y seleccionar".
-- El sistema ejecutará la consulta en todas las bases de datos y seleccionará aquellas que cumplan con el criterio especificado.
+- El sistema ejecutará la consulta en todas las bases de datos y seleccionará automáticamente aquellas que cumplan con el criterio especificado.
+
+Esta función le permite realizar selecciones complejas de bases de datos de manera eficiente, ahorrando tiempo y reduciendo errores en comparación con la selección manual.
 
 ### 3. Ejecución de consultas
 
@@ -220,13 +268,61 @@ MultiDB Query Executor is a robust web-based tool designed for executing and man
 - You can use the "Select All" button to quickly check or uncheck all databases.
 
 #### Selection by Query Result
-- Click the "Select databases by result" button.
+
+Selection by query result is a powerful feature that allows you to filter and select databases based on the result of a specific query. This functionality is especially useful when you need to quickly identify databases that meet certain criteria without having to manually check each one.
+
+**Benefits:**
+- Time-saving in selecting relevant databases.
+- Quick identification of databases that meet specific criteria.
+- Automation of selection processes based on data status.
+
+**Usage Examples:**
+
+1. **Identify Active Databases:**
+   Imagine you have multiple customer databases and want to select only those that have had recent activity.
+   ```sql
+   SELECT COUNT(*) FROM transactions WHERE date > DATE_SUB(NOW(), INTERVAL 30 DAY)
+   ```
+   By selecting databases with 1 or more results, you would quickly identify databases of customers active in the last 30 days.
+
+2. **Find Databases Requiring Maintenance:**
+   If you need to identify databases that have tables needing optimization:
+   ```sql
+   SELECT 
+       CASE 
+           WHEN COUNT(*)  > 1000000 THEN 1
+           ELSE NULL
+       END AS result
+   FROM sys_invoices
+   HAVING result IS NOT NULL
+   ```
+   By selecting databases with 1 or more results, you would find those with tables of more than a million rows that might need indexing or partitioning.
+
+3. **Verify Configurations:**
+   To ensure all your databases have a specific configuration:
+   ```sql
+   SELECT COUNT(*) FROM configuration WHERE key = 'version' AND value = '2.0'
+   ```
+   By selecting databases with 0 results, you would identify those that haven't yet been updated to version 2.0.
+
+4. **Security Audit:**
+   To identify databases that might have security issues:
+   ```sql
+   SELECT COUNT(*) FROM users WHERE access_type = 'admin'
+   ```
+   By selecting databases with more than 1 result, you could quickly identify those with multiple admin users, which might require review.
+
+**How to Use This Feature:**
+
+- Click on the "Select databases by result" button.
 - In the modal that appears:
   1. Choose whether you want to select databases that return 0 results or 1 or more results.
   2. Enter your query in the text area.
   3. Optionally, save the query for future use by checking the "Save this query" box and entering a name.
   4. Click "Execute and Select".
-- The system will run the query on all databases and select those that meet the specified criteria.
+- The system will run the query on all databases and automatically select those that meet the specified criteria.
+
+This feature allows you to perform complex database selections efficiently, saving time and reducing errors compared to manual selection.
 
 ### 3. Query Execution
 
