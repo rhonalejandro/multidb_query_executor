@@ -29,7 +29,13 @@ MultiDB Query Executor es una herramienta web robusta diseñada para ejecutar y 
 
 3. Asegúrese de tener PHP y un servidor web (como Apache) instalados en su sistema.
 
-4. Configure su archivo `config.json` con las credenciales de sus bases de datos:
+4. Verifique que SQLite3 esté habilitado en su configuración de PHP:
+   - Abra su archivo `php.ini` (la ubicación puede variar dependiendo de su sistema).
+   - Busque la línea `;extension=sqlite3` y asegúrese de que esté descomentada (quite el punto y coma al principio si está presente).
+   - Si la línea no existe, añádala: `extension=sqlite3`
+   - Guarde los cambios y reinicie su servidor web.
+
+5. Configure su archivo `config.json` con las credenciales de sus bases de datos:
    ```json
    {
        "Connection1": {
@@ -45,8 +51,10 @@ MultiDB Query Executor es una herramienta web robusta diseñada para ejecutar y 
    }
    ```
 
-5. Inicie su servidor web y navegue a la ubicación del proyecto en su navegador.
+6. Asegúrese de que el directorio del proyecto tenga los permisos adecuados para que PHP pueda crear y escribir en la base de datos SQLite.
 
+7. Inicie su servidor web y navegue a la ubicación del proyecto en su navegador.
+   
 ## Uso
 
 ### 1. Selección de conexión
@@ -172,7 +180,13 @@ MultiDB Query Executor is a robust web-based tool designed for executing and man
 
 3. Ensure you have PHP and a web server (such as Apache) installed on your system.
 
-4. Configure your `config.json` file with your database credentials:
+4. Verify that SQLite3 is enabled in your PHP configuration:
+   - Open your `php.ini` file (location may vary depending on your system).
+   - Look for the line `;extension=sqlite3` and make sure it's uncommented (remove the semicolon at the beginning if present).
+   - If the line doesn't exist, add it: `extension=sqlite3`
+   - Save the changes and restart your web server.
+
+5. Configure your `config.json` file with your database credentials:
    ```json
    {
        "Connection1": {
@@ -188,7 +202,9 @@ MultiDB Query Executor is a robust web-based tool designed for executing and man
    }
    ```
 
-5. Start your web server and navigate to the project location in your browser.
+6. Ensure that the project directory has the appropriate permissions for PHP to create and write to the SQLite database.
+
+7. Start your web server and navigate to the project location in your browser.
 
 ## Usage
 
