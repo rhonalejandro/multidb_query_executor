@@ -1,0 +1,12 @@
+{
+    "Connection1": {
+        "host": "host1.example.com",
+        "user": "username1",
+        "pass": "password1"
+    },
+    "Connection2": {
+        "host": "host2.example.com",
+        "user": "username2",
+        "pass": "password2"
+    }
+}
