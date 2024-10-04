@@ -1,11 +1,26 @@
 # MultiDB Query Executor (MySQL)
 
-[English version below]
+## Capturas de pantalla
 
-![Descripción de la imagen](./images/1.jpg)
-![Descripción de la imagen](./images/2.jpg)
-![Descripción de la imagen](./images/4.jpg)
-![Descripción de la imagen](./images/3.jpg)
+<p align="center">
+  <a href="./images/1.jpg" target="_blank">
+    <img src="./images/1.jpg" alt="Pantalla principal" width="400" style="margin-right: 10px;">
+  </a>
+  <a href="./images/2.jpg" target="_blank">
+    <img src="./images/2.jpg" alt="Selección de bases de datos" width="400">
+  </a>
+</p>
+
+<p align="center">
+  <a href="./images/4.jpg" target="_blank">
+    <img src="./images/4.jpg" alt="Ejecución de queries" width="400" style="margin-right: 10px;">
+  </a>
+  <a href="./images/3.jpg" target="_blank">
+    <img src="./images/3.jpg" alt="Resultados de queries" width="400">
+  </a>
+</p>
+
+(Haz clic en las imágenes para verlas en tamaño completo)
 
 ## Descripción
 
