@@ -2,6 +2,10 @@
 
 [English version below](#multidb-query-executor-1)
 
+![Descripción de la imagen](./images/1.jpg)
+![Descripción de la imagen](./images/2.jpg)
+![Descripción de la imagen](./images/4.jpg)
+![Descripción de la imagen](./images/3.jpg)
 ## Descripción
 
 MultiDB Query Executor es una herramienta web robusta diseñada para ejecutar y gestionar consultas SQL en múltiples bases de datos simultáneamente. Ofrece una interfaz intuitiva que permite a los usuarios seleccionar bases de datos, ejecutar consultas personalizadas y filtrar bases de datos basándose en los resultados de las consultas.
